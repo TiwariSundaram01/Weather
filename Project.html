@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather App</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="icons/favicon.svg">
+</head>
+
+<body>
+    <nav class="navbar">
+        <span class="flex">
+            <img src="icons/favicon.svg" alt="">
+            <h1>Coding-Hub</h1>
+        </span>
+        <div class="link">
+            <a href="#">HOME</a>
+            <a href="#">ABOUT</a>
+            <a href="#">GALLERY</a>
+            <a href="#">SERVICES</a>
+            <a href="#">CONTACT</a>
+            <button>FREE CODE</button>
+        </div>
+    </nav>
+    <hr>
+
+    <div class="outer">
+        <div class="inner" id="inner">
+            <h2 class="header">Weather App</h2>
+            <hr>
+            <input id="city-name" onfocus="input_focus()" onblur="this.style.border='none'"
+                placeholder="Enter a City Name.." type="text">
+
+            <button id="search" onclick="pop_up()">Search</button>
+        </div>
+
+        <div class="inner1" id="inner1">
+            <div class="flex">
+                <i class="fa-solid fa-arrow-left fa-xl" onclick="back_down()" id="back"></i>
+                <h2 class="header">Weather App</h2>
+            </div>
+            <hr>
+
+            <div>
+                <img src="icons/cloud.svg" id="image" alt="" height="150" style="display: block;margin: 20px auto;">
+                <h1 style="font-size: 7vh;text-align: center;color: white;"><span id="temp">38</span>°C</h1>
+                <p style="text-align: center;color: white;font-size: 3.5vh;"><span id="weather-type"></span></p>
+                <p style="text-align: center;color: white;font-size: 3vh;"><i class="fa-solid fa-location-dot fa-lg"></i> <span id="name">Mumbai</span>,<span id="country">IN</span></p>
+            </div><br><br>
+                <hr>
+        
+                <div class="main">
+                <div class="left">
+                    <center><i class="fa-solid fa-temperature-three-quarters fa-2xl"></i></center>
+                    <div>
+                        <p>  <span id="feel">31</span>°C</p>
+                        <p>Feels like</p>
+                    </div>
+                </div>
+                <div class="right">
+                    <p><i class="fa-solid fa-droplet fa-2xl"></i></p>
+                    <div>
+                        <p id="humid">79%</p>
+                        <p>Humidity</p>
+                    </div>
+                </div>
+
+            </div>
+            
+        </div>
+    </div>
+
+
+</body>
+<script src="weather.js"></script>
+<script src="https://kit.fontawesome.com/b13251932f.js" crossorigin="anonymous"></script>
+</html>
