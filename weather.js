@@ -1,40 +1,104 @@
-let key = "b190a0605344cc4f3af08d0dd473dd25";
+const apiKey = "b190a0605344cc4f3af08d0dd473dd25";
 
-function fetchData(){
-    let city = document.getElementById("city-name").value;
-    let a = fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${key}`)
-    a.then((value) => {
-        return value.json();
-    }).then((val1) => {
-        let a= document.getElementById("weather-type").innerHTML=val1['weather']['0']['main'];
-        console.log(typeof a);
-        console.log(val1);
-        console.log(val1["weather"][0]["main"]);
-        // console.log(val1["name"])
-        document.getElementById("name").innerHTML=val1['name']
-        document.getElementById("country").innerHTML=val1['sys']['country']
-        document.getElementById("temp").innerHTML=Math.round(val1['main']['temp'])
-        document.getElementById("humid").innerHTML=Math.round(val1['main']['humidity'])
-        document.getElementById("feel").innerHTML=Math.round(val1['main']['feels_like'])
-        document.getElementById("weather-type").innerHTML=val1['weather']['0']['main'];
-        document.getElementById("image").src=`icons/${val1["weather"][0]["main"]}.svg`.toLowerCase();
+const celsiusToFahrenheit = (celsius) => {
+    fahrenheit = (celsius * (9 / 5)) + 32
+    return fahrenheit.toFixed(2);
+}
+
+const showWeatherData = (data)=> {
+    console.log(data);
+    let temp_unit = $('input[name="temperatureUnit"]:checked').val();
+    let temp = data['main']['temp'];
+    let feels_like = data['main']['feels_like'];
+    let temp_max = data['main']['temp_max'];
+    let temp_min = data['main']['temp_min'];
+    let locality_name = data['name'];
+
+    if(data){
+        $('.showData').show(300);
+        $('#locality-name').text(locality_name);
+
+        if(temp_unit == 'celsius'){
+            $('#temp').text(temp+' °C');
+            $('#feels_like').text(feels_like+' °C');
+            $('#temp_max').text(temp_max+" °C");
+            $('#temp_min').text(temp_min+" °C");
+        }else {
+            $('#temp').text(celsiusToFahrenheit(temp)+' °F');
+            $('#feels_like').text(celsiusToFahrenheit(feels_like)+' °F');
+            $('#temp_max').text(celsiusToFahrenheit(temp_max)+" °F");
+            $('#temp_min').text(celsiusToFahrenheit(temp_min)+" °F");
+        }
+
+    } 
+};
+
+$('input[name="temperatureUnit"]').on('')
+
+// Function to fetch weather data using the OpenWeatherMap API
+const fetchWeatherData = (locality) => {
+    $.get(`https://api.openweathermap.org/data/2.5/weather?q=${locality}&units=metric&appid=${apiKey}`, (data) => {
+        showWeatherData(data);
+        showNotification("Weather data fetched successfully!", 'success');
     })
-    
-}
+    .fail((jqXHR, textStatus, errorThrown) => {
+        console.error(`Request failed: ${textStatus}, ${errorThrown}`);
+        showNotification("Unable to fetch weather data. Please try again in input field.", 'error');
+    });
+};
 
+// Function to get weather data based on user input
+$('#fetch-data').on('click',function(){
+    const locality = $('#locality').val();
+    if (locality) {
+        fetchWeatherData(locality);
+    } else {
+        showNotification("Please enter a valid locality.", 'error');
+    }
+});
 
-function input_focus() {
-    document.getElementById('city-name').style.border = '2px solid #B23668';
-}
+$('#locality').on('click',function(){
+    $('.showData').hide(300);
+})
 
-function pop_up() {
-    document.getElementById("inner1").style.display = "block";
-    document.getElementById("inner").style.display = "none";
-    fetchData();
+// Function to fetch user's geolocation and get weather data based on location
+const findUserLocation = () => {
+    const success = (position) => {
+        const { latitude, longitude } = position.coords;
+        const geoApiUrl = `https://api.bigdatacloud.net/data/reverse-geocode-client?latitude=${latitude}&longitude=${longitude}&localityLanguage=en`;
 
-}
+        $.get(geoApiUrl, (data) => {
+            if (data.locality) {
+                fetchWeatherData(data.locality);
+            } else {
+                showNotification("Unable to fetch locality data from geolocation.", 'error');
+            }
+        })
+        .fail(() => {
+            showNotification("Error in reverse geocoding API.", 'error');
+        });
+    };
 
-function back_down() {
-    document.getElementById("inner1").style.display = "none";
-    document.getElementById("inner").style.display = "block";
-}
+    const error = () => {
+        console.error("Unable to get user location.");
+        showNotification("Unable to get your location. Please enable location services.", 'error');
+    };
+
+    // Request user geolocation
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(success, error);
+    } else {
+        showNotification("Geolocation is not supported by your browser.", 'error');
+    }
+};
+
+// Function to display notifications
+const showNotification = (message, type) => {
+    $.notify(message, {
+        className: type,
+        position: "top right"
+    });
+};
+
+// Call function to find user's location when the page loads
+findUserLocation();
