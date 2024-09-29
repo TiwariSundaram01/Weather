@@ -44,22 +44,22 @@
     </div>
     <div class="container showData my-3 hide">
         <h2 class="text-light">
-            <i class="fa-brands fa-cloudversify"></i>
-            <span id="locality-name">Mumbai</span>
+            <i class="heading fa-brands fa-cloudversify"></i>
+            <span class="heading" id="locality-name">Mumbai</span>
         </h2>
-        <div class="row col-lg-12">
-            <div class="col-lg-5 row justify-content-around">
+        <div class="row col-lg-12 justify-content-around">
+            <div class="col-lg-4 row justify-content-around">
                 <div class="col-lg-5 card shade mt-4 display-center">
                     <h5 class="heading">
                         <i class="fa-solid fa-temperature-three-quarters"></i>
-                        Temperature
+                        Temp
                     </h5>
                     <h4 id="temp">30 °C</h4>
                 </div>
                 <div class="col-lg-5 card shade mt-4 display-center">
                     <h5 class="heading">
                         <i class="fa-solid fa-droplet"></i>
-                        Feels Like
+                        Real Feel
                     </h5>
                     <h4 id="feels_like">30 °C</h4>
                 </div>
@@ -76,6 +76,36 @@
                         Temp Min
                     </h5>
                     <h4 id="temp_min">30 °C</h4>
+                </div>
+                <div class="col-lg-5 card shade mt-4 display-center">
+                    <h5 class="heading">
+                        <i class="fa-solid fa-wind"></i>
+                        Pressure
+                    </h5>
+                    <h4 id="pressure">1008</h4>
+                </div>
+                <div class="col-lg-5 card shade mt-4 display-center">
+                    <h5 class="heading">
+                        <i class="fa-solid fa-eye"></i>
+                        Visibility
+                    </h5>
+                    <h4 id="visibility">1 Mi</h4>
+                </div>
+            </div>
+            <div class="col-lg-8 row justify-content-around">
+                <div class="col-lg-5 card shade mt-4 display-center">
+                    <img id="temp_img" src="/icons/clouds.svg" height="120" width="120" alt="not found"/>
+                    <h4 class="my-2" id="temp_name">Haze</h4>
+                </div>
+                <div class="col-lg-5 card shade mt-4 display-center">
+                    <h4 class="heading">
+                        <i class="fa-solid fa-wind"></i>
+                        Wind
+                    </h4>
+                    <div class="compass-container">
+                        <canvas id="compass" width="120" height="120"></canvas>
+                    </div>
+                    <h5>Speed : <span id="wind_speed">5.14 MPH</span></h5>
                 </div>
             </div>
         </div>
