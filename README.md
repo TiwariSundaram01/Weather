@@ -2,7 +2,10 @@
 
 A weather forecast web application that fetches real-time weather data from the OpenWeatherMap API and displays key metrics such as temperature, wind speed, visibility, pressure, and more. The app includes a stylish user interface, powered by Bootstrap, and dynamically updates based on the user's location or entered locality.
 
-![Weather App Preview](https://via.placeholder.com/800x400) <!-- Add a screenshot of your app here -->
+![Weather App Preview]
+![Weather-Preview](https://github.com/user-attachments/assets/46524533-ff8a-4bde-99c4-42abb25e09fb)
+
+
 
 ## Features
 
