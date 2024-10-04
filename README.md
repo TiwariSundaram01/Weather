@@ -3,6 +3,7 @@
 A weather forecast web application that fetches real-time weather data from the OpenWeatherMap API and displays key metrics such as temperature, wind speed, visibility, pressure, and more. The app includes a stylish user interface, powered by Bootstrap, and dynamically updates based on the user's location or entered locality.
 
 ![Weather App Preview]
+
 ![Weather-Preview](https://github.com/user-attachments/assets/46524533-ff8a-4bde-99c4-42abb25e09fb)
 
 
@@ -36,7 +37,6 @@ A weather forecast web application that fetches real-time weather data from the 
 
 ### Step 1: Clone the Repository
 
-bash
 git clone https://github.com/your-username/weather-forecast-app.git
 cd weather-forecast-app
 
@@ -46,7 +46,6 @@ cd weather-forecast-app
 1. Sign up for an API key from [OpenWeatherMap](https://home.openweathermap.org/users/sign_up).
 2. Open the weather.js file and replace the placeholder API key with your own.
 
-javascript
 const apiKey = "your_api_key_here";
 
 
@@ -54,7 +53,6 @@ const apiKey = "your_api_key_here";
 
 You can open project.html directly in your browser to view the app. Alternatively, you can host it on any web server.
 
-bash
 open project.html
 
 
@@ -73,11 +71,11 @@ You can customize the app by modifying the style.css for design or enhancing the
 
 /weather-forecast-app
 │
-├── /icons          # SVG weather icons
-├── project.html    # Main HTML file
-├── style.css       # Custom CSS file for styling
-├── weather.js      # JavaScript for fetching and displaying weather data
-└── README.md       # Project documentation
+├── /icons          # SVG weather icons <br>
+├── project.html    # Main HTML file <br>
+├── style.css       # Custom CSS file for styling <br>
+├── weather.js      # JavaScript for fetching and displaying weather data <br>
+└── README.md       # Project documentation <br>
 
 
 ## License
@@ -88,6 +86,5 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 Feel free to copy the content and adjust it for your GitHub repository:
 
-bash
 git clone https://github.com/your-username/weather-forecast-app.git
 cd weather-forecast-app
