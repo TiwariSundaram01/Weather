@@ -37,8 +37,8 @@ A weather forecast web application that fetches real-time weather data from the 
 
 ### Step 1: Clone the Repository
 
-git clone https://github.com/your-username/weather-forecast-app.git <br>
-cd weather-forecast-app
+git clone https://github.com/TiwariSundaram01/Weather.git <br>
+cd Weather
 
 
 ### Step 2: API Key Configuration
@@ -86,5 +86,5 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 Feel free to copy the content and adjust it for your GitHub repository:
 
-git clone https://github.com/your-username/weather-forecast-app.git <br>
-cd weather-forecast-app
+git clone https://github.com/TiwariSundaram01/Weather.git <br>
+cd Weather
