@@ -37,7 +37,7 @@ A weather forecast web application that fetches real-time weather data from the 
 
 ### Step 1: Clone the Repository
 
-git clone https://github.com/your-username/weather-forecast-app.git
+git clone https://github.com/your-username/weather-forecast-app.git <br>
 cd weather-forecast-app
 
 
@@ -69,8 +69,8 @@ You can customize the app by modifying the style.css for design or enhancing the
 ## Project Structure
 
 
-/weather-forecast-app
-│
+/weather-forecast-app <br>
+│  <br>
 ├── /icons          # SVG weather icons <br>
 ├── project.html    # Main HTML file <br>
 ├── style.css       # Custom CSS file for styling <br>
@@ -86,5 +86,5 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 Feel free to copy the content and adjust it for your GitHub repository:
 
-git clone https://github.com/your-username/weather-forecast-app.git
+git clone https://github.com/your-username/weather-forecast-app.git <br>
 cd weather-forecast-app
